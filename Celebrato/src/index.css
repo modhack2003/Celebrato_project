@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom background pattern */
+.bg-dots {
+  background-color: #ffffff;
+  background-image: radial-gradient(circle, #00000010 2px, rgba(255, 255, 255, 0) 2px);
+  background-size: 20px 20px;
+}
