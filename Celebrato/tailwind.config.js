@@ -9,12 +9,14 @@ export default {
       colors:{
         'primary-blue':'#64AADD',
         'blue-bg':' #64AADD29',
-        'btn-bl':'#2F2F2F'
+        'btn-bl':'#2F2F2F',
+        'btn-bl2':'#2B3136'
       }
     },
     fontFamily:{
       "ICON":["Irish Grover"],
-      "body":["Jost"]
+      "body":["Jost"],
+      "Rubik":["Rubik"]
     }
   },
   plugins: [],
