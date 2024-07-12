@@ -26,8 +26,11 @@ const Carousel = () => {
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
   const length = images.length;
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(length - 1);
+  const [nextIndex, setNextIndex] = useState(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,44 +40,38 @@ const Carousel = () => {
     return () => clearInterval(interval);
   }, [length]);
 
+  useEffect(() => {
+    setPrevIndex((currentIndex - 1 + length) % length);
+    setNextIndex((currentIndex + 1) % length);
+  }, [currentIndex, length]);
+
   if (!Array.isArray(images) || images.length === 0) {
     return null;
   }
 
-  const getPrevIndex = (index) => (index - 1 + length) % length;
-  const getNextIndex = (index) => (index + 1) % length;
-
-  const prevIndex = getPrevIndex(currentIndex);
-  const nextIndex = getNextIndex(currentIndex);
-  console.log(prevIndex);
-  console.log(currentIndex);
-  console.log(nextIndex);
-
   return (
-    <div className="relative flex flex-col justify-center items-center h-[70vh] bg-white overflow-hidden">
-      <div className="w-full h-full relative flex items-center justify-center">
-        <div className="absolute w-[150%] h-full flex transition-transform duration-500" style={{ transform: `translateX(-${(100 / 3)}%)` }}>
-          <div className="relative w-[33.33%] flex-shrink-0 mx-0">
-            <img src={images[prevIndex].url} alt={images[prevIndex].alt} className="w-full h-full object-cover rounded-lg" />
-          </div>
-          <div className="relative w-[33.33%] flex-shrink-0 mx-0">
-            <img src={images[currentIndex].url} alt={images[currentIndex].alt} className="w-full h-full object-cover rounded-lg" />
-            <div className="absolute bottom-0 left-0 right-0 bg-opacity-50 text-white p-4">
-              <h2 className="text-2xl md:text-4xl font-bold mb-4">{images[currentIndex].caption}</h2>
-              <a href={images[currentIndex].link} className="text-lg md:text-xl px-4 py-2 flex items-center justify-center">
-                <img src={arrow} alt="" className="mr-4" />
-                Explore
-              </a>
-            </div>
-          </div>
-          <div className="relative w-[33.33%] flex-shrink-0 mx-0">
-            <img src={images[nextIndex].url} alt={images[nextIndex].alt} className="w-full h-full object-cover rounded-lg" />
+    <div className="relative w-full h-[70vh] bg-white my-14 overflow-hidden">
+      <div className="w-full h-full relative flex items-center justify-center overflow-hidden">
+        <div className="relative w-[20%] h-[90%] flex-shrink-0 transition-all duration-500 ease-in-out">
+          <img src={images[prevIndex].url} alt={images[prevIndex].alt} className="w-full h-full object-cover rounded-l-xl" />
+        </div>
+        <div className="relative w-[60%] h-[90%] flex-shrink-0 transition-all duration-500 ease-in-out">
+          <img src={images[currentIndex].url} alt={images[currentIndex].alt} className="w-full h-full object-cover" />
+          <div className="absolute bottom-0 left-0 right-0 text-white p-4 h-[30vh] bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xs bg-opacity-10">
+            <h2 className="text-2xl md:text-3xl font-body mb-8 text-start w-[70%]">{images[currentIndex].caption}</h2>
+            <a href={images[currentIndex].link} className="text-lg md:text-2xl px-4 py-2 mb-36 flex w-max pl-16 items-center justify-start">
+              <img src={arrow} alt="" className="mr-8" />
+              Explore
+            </a>
           </div>
         </div>
+        <div className="relative w-[20%] h-[90%] flex-shrink-0 transition-all duration-500 ease-in-out">
+          <img src={images[nextIndex].url} alt={images[nextIndex].alt} className="w-full h-full object-cover rounded-r-xl" />
+        </div>
       </div>
-      <div className="absolute top-0 bottom-0 left-0 w-[20%] bg-gradient-to-r from-black to-transparent z-10" />
-      <div className="absolute top-0 bottom-0 right-0 w-[20%] bg-gradient-to-l from-black to-transparent z-10" />
-      <div className="absolute bottom-[30px] left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+      <div className="absolute top-6 bottom-0 left-0 w-[22%] h-[90%] bg-gradient-to-r from-black to-transparent z-10" />
+      <div className="absolute top-6 bottom-0 right-0 w-[22%] h-[90%] bg-gradient-to-l from-black to-transparent z-10" />
+      <div className="absolute bottom-[1px] left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
         {images.map((_, index) => (
           <div
             key={index}
