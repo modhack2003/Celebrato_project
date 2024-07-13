@@ -25,7 +25,7 @@ const WhyChooseUs = () => {
                 From budgeting to guest lists, we've got everything you need to plan the perfect event.
               </p>
             </div>
-            <div className="flex-shrink-0 ml-4 flex space-x-2">
+            <div className="flex-shrink-0 ml-4 flex flex-wrap space-x-0 max-w-[50%]">
               <img src={icon1} alt="Comprehensive Planning Tools" className="h-16 sm:h-16 lg:h-16 w-auto" />
               <img src={icon2} alt="Comprehensive Planning Tools" className="h-16 sm:h-16 lg:h-16 w-auto" />
             </div>
@@ -41,7 +41,7 @@ const WhyChooseUs = () => {
                 Personalize your event with a variety of themes and decorations.
               </p>
             </div>
-            <div className="flex-shrink-0 ml-4 flex space-x-2">
+            <div className="flex-shrink-0 ml-4 flex flex-wrap space-x-0 max-w-[50%]">
               <img src={icon3} alt="Customizable Themes" className="h-16 sm:h-16 lg:h-16 w-auto" />
               <img src={icon4} alt="Customizable Themes" className="h-16 sm:h-16 lg:h-16 w-auto" />
             </div>

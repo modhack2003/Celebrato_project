@@ -40,7 +40,7 @@ const ServiceCard = ({ imageUrl, title, description }) => {
         <p className="text-gray-500">{description}</p>
       </div>
       <button className="absolute bottom-0 right-0 bg-btn-bl2 w-24 h-16 flex items-center justify-center ellipsis-button-custom">
-        <div className="flex pl-6 space-x-1">
+        <div className="flex pl-4 space-x-1">
           <span className="w-1.5 h-1.5 bg-white rounded-full"></span>
           <span className="w-1.5 h-1.5 bg-white rounded-full"></span>
           <span className="w-1.5 h-1.5 bg-white rounded-full"></span>
@@ -95,24 +95,24 @@ const ServiceSection = () => {
               ))}
             </div>
 
-            <div className="absolute buttom-0 right-10 transform-translate-y-1/2 flex justify-between w-[22vh] px-4">
-              <button onClick={goToPrevious} className="bg-gray-200 p-4 rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="absolute bottom-0 right-10 transform-translate-y-1/2 flex justify-between w-max space-x-5 px-1">
+              <button onClick={goToPrevious} className="bg-gray-200 p-2 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
-              <button onClick={goToNext} className="bg-btn-bl2 p-4 rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <button onClick={goToNext} className="bg-btn-bl2 p-2 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                 </svg>
               </button>
             </div>
 
-            <div className="flex justify-start ml-8 mt-4">
+            <div className="flex justify-start ml-4 mt-2">
               {services.map((_, index) => (
                 <div
                   key={index}
-                  className={`w-2.5 h-2.5 mx-1  my-4 rounded-full ${index === currentIndex ? 'bg-primary-blue' : 'bg-gray-300'}`}
+                  className={`w-1 h-1 mx-1  my-2 rounded-full ${index === currentIndex ? 'bg-primary-blue' : 'bg-gray-300'}`}
                 />
               ))}
             </div>
