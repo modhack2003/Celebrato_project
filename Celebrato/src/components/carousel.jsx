@@ -52,10 +52,10 @@ const Carousel = () => {
   return (
     <div className="relative w-full h-[70vh] bg-white my-14 overflow-hidden">
       <div className="w-full h-full relative flex items-center justify-center overflow-hidden">
-        <div className="relative w-[20%] h-[90%] flex-shrink-0 transition-all duration-500 ease-in-out">
+        <div className="hidden md:block relative w-[20%] h-[90%] flex-shrink-0 transition-all duration-500 ease-in-out">
           <img src={images[prevIndex].url} alt={images[prevIndex].alt} className="w-full h-full object-cover rounded-l-xl" />
         </div>
-        <div className="relative w-[60%] h-[90%] flex-shrink-0 transition-all duration-500 ease-in-out">
+        <div className="relative w-full md:w-[60%] h-full flex-shrink-0 transition-all duration-500 ease-in-out">
           <img src={images[currentIndex].url} alt={images[currentIndex].alt} className="w-full h-full object-cover" />
           <div className="absolute bottom-0 left-0 right-0 text-white p-4 h-[30vh] bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-xs bg-opacity-10">
             <h2 className="text-2xl md:text-3xl font-body mb-8 text-start w-[70%]">{images[currentIndex].caption}</h2>
@@ -65,12 +65,12 @@ const Carousel = () => {
             </a>
           </div>
         </div>
-        <div className="relative w-[20%] h-[90%] flex-shrink-0 transition-all duration-500 ease-in-out">
+        <div className="hidden md:block relative w-[20%] h-[90%] flex-shrink-0 transition-all duration-500 ease-in-out">
           <img src={images[nextIndex].url} alt={images[nextIndex].alt} className="w-full h-full object-cover rounded-r-xl" />
         </div>
       </div>
-      <div className="absolute top-6 bottom-0 left-0 w-[22%] h-[90%] bg-gradient-to-r from-black to-transparent z-10" />
-      <div className="absolute top-6 bottom-0 right-0 w-[22%] h-[90%] bg-gradient-to-l from-black to-transparent z-10" />
+      <div className="absolute top-6 bottom-0 left-0 hidden md:block w-[22%] h-[90%] bg-gradient-to-r from-black to-transparent z-10" />
+      <div className="absolute top-6 bottom-0 right-0 hidden md:block w-[22%] h-[90%] bg-gradient-to-l from-black to-transparent z-10" />
       <div className="absolute bottom-[1px] left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
         {images.map((_, index) => (
           <div
